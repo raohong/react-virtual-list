@@ -2,10 +2,10 @@ import {
   ItemSize,
   ItemSizeGetter,
   EstimatedSizeGetter,
-  DEFAULT_ESTIMATEDSIZE,
   CellCacheItem,
   DIRECTION,
-  sizeProp
+  sizeProp,
+  DEFAULT_ITEMSIZE
 } from './types';
 import CellCache from './CellCache';
 
@@ -36,5 +36,5 @@ export const getEstimatedGetter = (
   return () =>
     estimatedSize ||
     (typeof itemSize === 'number' && itemSize) ||
-    DEFAULT_ESTIMATEDSIZE;
+    DEFAULT_ITEMSIZE;
 };

@@ -78,7 +78,7 @@ interface ItemStyle {
   zIndex: React.CSSProperties['zIndex'];
 }
 
-interface VirtualListState {
+export interface VirtualListState {
   offset: number;
   scrollReadyStatus: SCROLL_READY_STATUS;
   instanceProps: InstanceProps;
@@ -307,6 +307,7 @@ export class VirtualList extends React.PureComponent<
 
   scrollTo(scrollOffset: number) {
     const { scrollDirection } = this.props;
+
     if (this.rootNode) {
       this.rootNode[scrollProp[scrollDirection!]] = scrollOffset;
     }

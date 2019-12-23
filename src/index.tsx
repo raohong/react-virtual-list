@@ -1,5 +1,5 @@
 import VirtualList from './VirtualList';
 
-export default VirtualList;
-
 export { VirtualList };
+
+export default VirtualList;

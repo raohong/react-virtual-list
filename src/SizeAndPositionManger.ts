@@ -84,7 +84,10 @@ export class SizeAndPositionManager {
 
   getTotalSize() {
     const lastSizeAndPosition = this.getSizeAndPositionOfLastMeasured();
-    const restNum = this.itemCount - 1 - Math.max(0, this.lastMeasuredIndex);
+    const restNum = Math.max(
+      0,
+      this.itemCount - 1 - Math.max(0, this.lastMeasuredIndex)
+    );
 
     return (
       lastSizeAndPosition.size +
@@ -144,7 +147,7 @@ export class SizeAndPositionManager {
   }): { start?: number; end?: number } {
     const totalSize = this.getTotalSize();
 
-    if (totalSize === 0) {
+    if (totalSize === 0 || containerSize === 0) {
       return {};
     }
 
