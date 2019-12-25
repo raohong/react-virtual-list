@@ -47,7 +47,7 @@ export class SizeAndPositionManager {
   getSizeAndPositionForIndex(index: number) {
     if (index < 0 || index >= this.itemCount) {
       throw Error(
-        `Required index ${index} is outof range 0..${this.itemCount - 1}`
+        `Invalid index ${index} is outof range 0..${this.itemCount - 1}`
       );
     }
 
@@ -125,7 +125,7 @@ export class SizeAndPositionManager {
         offset = minOffset;
         break;
       case ALIGN.CENTER:
-        offset = maxOffset - (containerSize - sizeAndPosition.size) / 2;
+        offset = maxOffset - containerSize / 2 + sizeAndPosition.size / 2;
         break;
       default:
         offset = Math.min(maxOffset, Math.max(minOffset, currentOffset));

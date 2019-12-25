@@ -228,7 +228,10 @@ export class VirtualList extends React.PureComponent<
       recomputeSizes();
     }
 
-    if (scrollPropsHaveChanged) {
+    if (
+      scrollPropsHaveChanged &&
+      prevState.scrollReadyStatus !== SCROLL_READY_STATUS.NONE
+    ) {
       const nextState: VirtualListState = {
         ...prevState,
         scrollReadyStatus: SCROLL_READY_STATUS.PREPARE
